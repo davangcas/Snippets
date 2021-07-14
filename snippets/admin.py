@@ -1,8 +1,5 @@
 from django.contrib import admin
 
-from .models import Language
+from snippets.models.language import Language
 
-
-@admin.register(Language)
-class LanguageAdmin(admin.ModelAdmin):
-    pass
+admin.site.register(Language)
