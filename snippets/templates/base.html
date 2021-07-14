@@ -8,14 +8,14 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="signin.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'snippets\css\signin.css' %}" crossorigin="anonymous">
         <style type="text/css"></style>
         <title>Django Snippets</title>
     </head>
     <body>
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="{% url 'index' %}">Snippets Project</a>
+                <a class="navbar-brand" href="{% url 'snippets:index' %}">Snippets Project</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -25,12 +25,12 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Snipets</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{% url 'snippet_add' %}">Cargar Snippets</a>
-                                <a class="dropdown-item" href="{% url 'index' %}">Listado de Snippets</a>                
+                                <a class="dropdown-item" href="{% url 'snippets:snippet_add' %}">Cargar Snippets</a>
+                                <a class="dropdown-item" href="{% url 'snippets:index' %}">Listado de Snippets</a>                
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" tabindex="-1">Salir</a>
+                            <a class="nav-link" href="{% snippets:logout %}" tabindex="-1">Salir</a>
                         </li>
                     </ul>
                 </div>

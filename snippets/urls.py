@@ -5,6 +5,7 @@ from snippets.views.snippets import *
 from snippets.views.user import *
 from snippets.views.language import *
 
+app_name = "snippets"
 
 urlpatterns = [
     path('', SnippetListView.as_view(), name='index'),
