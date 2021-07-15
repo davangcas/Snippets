@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from snippets.models.snippet import Snippet
 
 class LoginAppView(LoginView):
-    template_name = "snippets/login.html"
+    template_name = "login.html"
     
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:

@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #Libs
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -131,5 +133,5 @@ else:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # login root
-LOGIN_REDIRECT_URL = ''
+LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = 'snippets:login'

@@ -24,12 +24,12 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Snipets</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{% url 'snippets:snippet_add' %}">Cargar Snippets</a>
+                                <a class="dropdown-item" href="{% url 'snippets:snippet_add' user_id %}">Cargar Snippets</a>
                                 <a class="dropdown-item" href="{% url 'snippets:index' %}">Listado de Snippets</a>                
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% snippets:logout %}" tabindex="-1">Salir</a>
+                            <a class="nav-link" href="{% url 'snippets:logout' %}" tabindex="-1">Salir</a>
                         </li>
                     </ul>
                 </div>

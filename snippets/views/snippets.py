@@ -16,12 +16,13 @@ class SnippetCreateView(CreateView):
 
 class SnippetListView(ListView):
     model = Snippet
-    template_name = "snippets/index.html"
+    template_name = "index.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = "Snippets"
         context['object_list'] = Snippet.objects.filter(public=True)
+        context['user_id'] = self.request.user.id
         return context
 
 class SnippetUpdateView(UpdateView):
