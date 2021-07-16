@@ -5,4 +5,10 @@ from snippets.models.snippet import Snippet
 class SnippetForm(ModelForm):
     class Meta:
         model = Snippet
-        fields = []
+        fields = [
+            'name',
+            'language',
+            'description',
+            'snippet',
+            'public'
+        ]

@@ -28,8 +28,8 @@ class UserSnippetsView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['user'] = User.object.get(pk=self.kwargs['pk'])
+        context['user'] = User.objects.get(pk=self.kwargs['pk'])
         context['public_snippets'] = Snippet.objects.filter(user_id=self.kwargs['pk']).filter(public=True)
-        if self.request.user.id == User.objects.get(pk=self.kwargs['pk']):
+        if self.request.user.id == User.objects.get(pk=self.kwargs['pk']).id:
             context['private_snippets'] = Snippet.objects.filter(user_id=self.kwargs['pk']).filter(public=False)
         return context

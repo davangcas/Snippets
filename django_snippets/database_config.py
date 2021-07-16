@@ -1,6 +1,6 @@
 import os
 import dj_database_url
-#import decouple
+import decouple
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -12,7 +12,7 @@ SQLITE = {
 }
 
 HEROKU = {
-    #'default': dj_database_url.config(
-        #default=decouple.config('DATABASE_URL')
-    #)
+    'default': dj_database_url.config(
+        default=decouple.config('DATABASE_URL')
+    )
 }

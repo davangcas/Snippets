@@ -7,18 +7,20 @@
         <br>
         <!-- Snippets Publicos-->
         {% if public_snippets %}
-        {% for public_snippets as ps %}
+        {% for ps in public_snippets %}
         <!-- SNIPPET -->
         <div class="card">
-            <h5 class="card-header">ps.name <a href="{% url 'user_snippets' ps.user.id %}"  class="float-right"><small>{{ps.user.username}}</small></a></h5>
+            <h5 class="card-header">{{ps.name}} <a href="{% url 'snippets:user_snippets' ps.user.id %}"  class="float-right"><small>{{ps.user.username}}</small></a></h5>
             <div class="card-body">
-                <a href="{% url 'language' ps.language.id %}"><h5 class="card-title">{{ps.language.name}}</h5></a> 
+                <a href="{% url 'snippets:language' ps.language.id %}"><h5 class="card-title">{{ps.language.name}}</h5></a> 
                 <h6 class="card-subtitle mb-2 text-muted">Creado: {{ps.created}}</h6>
                 <p class="card-text">{{ps.description}}</p>
                 <hr>
-                <a href="{% url 'snippet' ps.id %}" class="btn btn-primary">Ver</a>
-                <a href="{% url 'snippet_edit' ps.id %}" class="btn btn-info">Editar</a>
-                <a href="{% url 'snippet_delete' ps.id %}" class="btn btn-danger">Eliminar</a>
+                <a href="{% url 'snippets:snippet' ps.id %}" class="btn btn-primary">Ver</a>
+                {% if request.user == user %}
+                <a href="{% url 'snippets:snippet_edit' ps.id %}" class="btn btn-info">Editar</a>
+                <a href="{% url 'snippets:snippet_delete' ps.id %}" class="btn btn-danger">Eliminar</a>
+                {% endif %}
             </div>
         </div>
         <br>
@@ -29,18 +31,18 @@
 
         <!-- Snippets Privados -->
         {% if private_snippets %}
-        {% for private_snippets as prs %}
+        {% for prs in private_snippets %}
         <!-- SNIPPET -->
         <div class="card">
-            <h5 class="card-header">{{prs.name}} <span class="badge badge-warning">Privado</span> <a href="{% url 'user_snippets' prs.user.id %}"  class="float-right"><small>{{prs.user.username}}</small></a></h5>
+            <h5 class="card-header">{{prs.name}} <span class="badge badge-warning">Privado</span> <a href="{% url 'snippets:user_snippets' prs.user.id %}"  class="float-right"><small>{{prs.user.username}}</small></a></h5>
             <div class="card-body">
-                <a href="{% url 'language' prs.language.id %}"><h5 class="card-title">{{prs.language.name}}</h5></a> 
+                <a href="{% url 'snippets:language' prs.language.id %}"><h5 class="card-title">{{prs.language.name}}</h5></a> 
                 <h6 class="card-subtitle mb-2 text-muted">Creado: {{prs.created}}</h6>
                 <p class="card-text">{{prs.description}}</p>
                 <hr>
-                <a href="{% url 'snippet' prs.id %}" class="btn btn-primary">Ver</a>
-                <a href="{% url 'snippet_edit' prs.id %}" class="btn btn-info">Editar</a>
-                <a href="{% url 'snippet_delete' prs.id %}" class="btn btn-danger">Eliminar</a>
+                <a href="{% url 'snippets:snippet' prs.id %}" class="btn btn-primary">Ver</a>
+                <a href="{% url 'snippets:snippet_edit' prs.id %}" class="btn btn-info">Editar</a>
+                <a href="{% url 'snippets:snippet_delete' prs.id %}" class="btn btn-danger">Eliminar</a>
             </div>
         </div>
         <br>

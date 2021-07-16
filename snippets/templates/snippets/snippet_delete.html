@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="row justify-content-md-center">
+    <div class="col-md-8">
+        <h1>Eliminar Snippet : {{snippet.name}}</h1>
+        <div class="card">
+            <div class="card-body">
+                <form action="." method="post">
+                    {% csrf_token %}
+                    <p class="card-text">¿Está seguro de querer eliminar el snippet?</p>
+                    <div class="form-group">
+                        <button class="btn-danger" type="submit">Eliminar</button>
+                        <button class="btn-secondary"> <a href="{% url 'snippets:index' %}" style="color: white;" >Cancelar</a></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

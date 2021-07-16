@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'gz(%zk5m1&tiv(_&$)^69(a!bos)4iuzp7y4d8eyi&td2eqj+u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #Libs
     'widget_tweaks',
+    'crispy_forms',
+    'pygments_renderer',
 ]
 
 MIDDLEWARE = [
@@ -135,3 +137,7 @@ else:
 # login root
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = 'snippets:login'
+
+
+#Crispy forms
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

@@ -8,15 +8,17 @@
         {% for obj in object_list %}
         <!-- SNIPPET -->
         <div class="card">
-            <h5 class="card-header">{{obj.name}} <a href="{% url 'user_snippets' %}"  class="float-right"><small>{{obj.user.username}}</small></a></h5>
+            <h5 class="card-header">{{obj.name}} <a href="{% url 'snippets:user_snippets' obj.user.id %}"  class="float-right"><small>{{obj.user.username}}</small></a></h5>
             <div class="card-body">
-                <a href="{% url 'language' obj.language.id %}"><h5 class="card-title">{{obj.language.name}}</h5></a> 
+                <a href="{% url 'snippets:language' obj.language.id %}"><h5 class="card-title">{{obj.language.name}}</h5></a> 
                 <h6 class="card-subtitle mb-2 text-muted">Creado: {{obj.created}}</h6>
                 <p class="card-text">{{obj.description}}</p>
                 <hr>
-                <a href="{% url 'snippet' obj.id %}" class="btn btn-primary">Ver</a>
-                <a href="{% url 'snippet_edit' obj.id %}" class="btn btn-info">Editar</a>
-                <a href="{% url 'snippet_delete' obj.id %}" class="btn btn-danger">Eliminar</a> 
+                <a href="{% url 'snippets:snippet' obj.id %}" class="btn btn-primary">Ver</a>
+                {% if request.user.id == obj.user.id %}
+                <a href="{% url 'snippets:snippet_edit' obj.id %}" class="btn btn-info">Editar</a>
+                <a href="{% url 'snippets:snippet_delete' obj.id %}" class="btn btn-danger">Eliminar</a> 
+                {% endif %}
             </div>
         </div>
         <br>
